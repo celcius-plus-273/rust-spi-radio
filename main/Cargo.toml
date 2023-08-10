@@ -1,0 +1,28 @@
+[package]
+name = "main"
+version = "0.1.0"
+authors = ["kei_h"]
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7"
+embedded-hal = "0.2"
+# Remove me if you don't want logging.
+log = "0.4"
+imxrt-iomuxc = "0.2.2"
+sx127x_lora = { path = "../driver" }
+
+[dependencies.teensy4-panic]
+version = "0.2"
+features = ["log"]
+
+[dependencies.teensy4-bsp]
+version = "0.4"
+features = [
+    # Use the BSP's runtime. This lets you write your
+    # `main()` function.
+    "rt",
+    # Remove me if you don't want logging.
+    "usb-logging",
+]
+
